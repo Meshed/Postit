@@ -44,11 +44,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render json: @post, status: :created, location: @post }
+        format.html { redirect_to posts_path }
       else
-        format.html { render action: "new" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.html { render action: "new", notice: 'Post was successfully created.' }
       end
     end
   end
@@ -60,11 +58,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to posts_path, notice: 'Post was successfully updated.' }
       else
         format.html { render action: "edit" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end

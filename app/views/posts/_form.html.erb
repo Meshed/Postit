@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :user %><br />
-    <%= f.select( :user_id, User.all.map { |e| [e.name, e.id] }) %>
+    <%= f.select( :user_id, User.all.map { |e| [e.name, e.id] }) %> <%= link_to "New User", new_user_path %>
   </div>
   <div class="actions">
     <%= f.submit %>
