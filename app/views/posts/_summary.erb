@@ -1,8 +1,9 @@
   <tr>
 	<td>
   		<div class="post">
-    		<%= post.url %>
-		</div>
+        <%= post.description %><br />
+    		<%= link_to post.url, post.url %>
+		  </div>
     	<div class="poster">
     		Poster: <%= post.user.name %>
     	</div>
