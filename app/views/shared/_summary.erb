@@ -1,0 +1,13 @@
+  <tr>
+    <td>
+  		<div class="post">
+        <%= post.description %><br />
+    		<%= link_to post.url, post.url %>
+		  </div>
+    	<div class="poster">
+    		Poster: <%= link_to post.user.name, user_path(post.user_id) %>
+    	</div>
+    </td>
+
+    <td><%= link_to 'View', post %></td>
+  </tr>

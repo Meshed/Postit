@@ -10,6 +10,15 @@
   <%= @user.email %>
 </p>
 
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% @user.posts.each do |post| %>
+	<%= render 'shared/summary', post: post %>
+<% end %>
+</table>
