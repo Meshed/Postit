@@ -14,11 +14,6 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
   end
 
   # GET /posts/new
@@ -44,9 +39,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to posts_path }
+        format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
       else
-        format.html { render action: "new", notice: 'Post was successfully created.' }
+        format.html { render action: "new", notice: 'Post failed to creat successfully.' }
       end
     end
   end

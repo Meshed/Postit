@@ -4,9 +4,8 @@
         <%= post.description %><br />
     		<%= link_to post.url, post.url %>
 		  </div>
-    	<div class="poster">
-    		Poster: <%= link_to post.user.name, user_path(post.user_id) %>
-    	</div>
+  		Poster: <%= link_to post.user.name, user_path(post.user_id) %>
+      Comments: <%= link_to post.comments.count, post_path(post.user_id) %>
     </td>
 
     <td><%= link_to 'View', post %></td>

@@ -1,10 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Url:</b>
+	<%= @post.description %>
   <%= @post.url %>
 </p>
 
+<div>
+<%= link_to "Add Comment", new_comment_path(id: @post.id) %>
+</div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div>
+	Comments<br />
+	<br />
+
+	<% @post.comments.each do |f| %>
+		<div style="comment">
+			<%= f.comment %><br />
+			<%= f.user.name %>
+		</div><br />
+	<% end %>
+</div>
