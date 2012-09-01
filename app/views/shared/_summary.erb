@@ -3,7 +3,7 @@
           <%= post.description %>
         </div>
         <div class="url">
-    		  <%= link_to post.url, post.url %>
+    		  <%= link_to post.url, "http://" + post.url %>
         </div>
     		Poster: <%= link_to post.user.name, user_path(post.user_id) %>
         Comments: <%= link_to post.comments.count, post_path(post.user_id) %>
