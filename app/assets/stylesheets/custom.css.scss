@@ -1,1 +1,20 @@
 @import "bootstrap";
+
+.center	{
+	text-align: center;	
+}
+
+.post {
+	text-align: left;
+
+	.description{
+		font-size: 18px;
+	}
+	.view{
+		float: right;
+	}
+}
+
+div.hero-unit h1 {
+	padding-bottom: 30px;
+}

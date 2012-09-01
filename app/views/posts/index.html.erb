@@ -1,19 +1,11 @@
 <p id="notice"><%= notice %></p>
-<h1>Posts</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="center hero-unit">
+	<h1>Posts</h1>
 
-<% @posts.each do |post| %>
-  <%= render 'shared/summary', post: post %>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Post', new_post_path %>
+	<%= link_to 'New Post', new_post_path %>
+	
+	<% @posts.each do |post| %>
+	  <%= render 'shared/summary', post: post %>
+	<% end %>
+</div>

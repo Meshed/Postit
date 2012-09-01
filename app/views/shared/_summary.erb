@@ -1,12 +1,14 @@
-  <tr>
-    <td>
   		<div class="post">
-        <%= post.description %><br />
-    		<%= link_to post.url, post.url %>
-		  </div>
-  		Poster: <%= link_to post.user.name, user_path(post.user_id) %>
-      Comments: <%= link_to post.comments.count, post_path(post.user_id) %>
-    </td>
+        <div class="description">
+          <%= post.description %>
+        </div>
+        <div class="url">
+    		  <%= link_to post.url, post.url %>
+        </div>
+    		Poster: <%= link_to post.user.name, user_path(post.user_id) %>
+        Comments: <%= link_to post.comments.count, post_path(post.user_id) %>
+        <div class="view">
+          <%= link_to 'View', post %>
+        </div>
+      </div>
 
-    <td><%= link_to 'View', post %></td>
-  </tr>
