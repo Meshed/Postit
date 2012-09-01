@@ -1,8 +1,4 @@
-.post {
-	background-color: #EEE8AA;
-	padding: 1em;
-}
-
-.poster {
-	font-size: 9px;
-}
+/*
+ *= require_self
+ *= require_tree .
+ */
