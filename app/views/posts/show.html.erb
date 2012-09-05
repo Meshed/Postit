@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-	<%= @post.description %>
-  <%= @post.url %>
-</p>
+<%= render 'shared/summary', post: @post %>
 
 <div>
 <%= link_to "Add Comment", new_comment_path(id: @post.id) %>

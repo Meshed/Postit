@@ -6,7 +6,8 @@
 
 .post {
 	text-align: left;
-	padding-top: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 
 	.url{
 		font-size: 18px;
@@ -20,5 +21,9 @@
 }
 
 div.hero-unit h1 {
-	padding-bottom: 30px;
+	padding-bottom: 10px;
+}
+
+div.main-container {
+	padding-top: 40px;
 }
