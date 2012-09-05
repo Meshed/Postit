@@ -1,14 +1,10 @@
   		<div class="post">
         <div class="url">
-    		  <%= link_to post.url, "http://" + post.url %>
+    		  <%= link_to post.description, "http://" + post.url %>
         </div>
-        <div class="description">
-          <%= post.description %>
-        </div>
-    		Poster: <%= link_to post.user.name, user_path(post.user_id) %>
-        Comments: <%= link_to post.comments.count, post_path(post.user_id) %>
-        <div class="view">
-          <%= link_to 'View', post %>
-        </div>
+        <h3>
+      		<%= link_to "Poster: " + post.user.name, user_path(post.user_id) %>
+          <%= link_to "Comments: #{post.comments.count}", post_path(post.user_id) %>
+        </h3>
       </div>
 
