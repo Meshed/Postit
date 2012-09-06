@@ -2,8 +2,8 @@
 
 <%= render 'shared/summary', post: @post %>
 
-<div>
-<%= link_to "Add Comment", new_comment_path(id: @post.id) %>
+<div class="btn btn-primary">
+	<%= link_to "Add Comment", new_comment_path(id: @post.id) %>
 </div>
 
 <div>
