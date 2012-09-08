@@ -1,6 +1,6 @@
   		<div class="post">
         <div class="url">
-    		  <%= link_to post.description, "http://" + post.url %>
+    		  <%= link_to post.description, post.url %>
         </div>
         <h3>
       		<%= link_to "Poster: " + post.user.name, user_path(post.user_id) %>
