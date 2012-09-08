@@ -4,7 +4,7 @@
         </div>
         <h3>
       		<%= link_to "Poster: " + post.user.name, user_path(post.user_id) %>
-          <%= link_to "Comments: #{post.comments.count}", post_path(post.user_id) %>
+          <%= link_to "Comments: #{post.comments.count}", post_path(post.id) %>
         </h3>
       </div>
 
