@@ -1,0 +1,8 @@
+/* Insert a notice between the last commend and the new comment form */
+$("#comment-notice").html('<div class="flash notice"><%= escape_javascript(flash.delete(:notice)) %></div>');
+
+/* Add the new comment to the bottom of the comments list */
+$("comments").append("<%= escape_javascript(render(@comment)) %>");
+
+/* Highlight the new comment */
+$("#comment_<%= @comment.id %>").effect("Highlight", {}, 3000);
