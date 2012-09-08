@@ -71,4 +71,16 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def voteup
+    @post = Post.find(params[:id])
+
+    @post.votescore = @post.votescore + 1
+    @post.save
+
+    respond_to do |format|
+      format.html { redirect_to posts_url }
+      format.js
+    end
+  end
 end

@@ -5,6 +5,8 @@ Postit::Application.routes.draw do
   resources :posts
   resources :users
 
+  match '/posts/voteup/:id' => 'posts#voteup', :as => 'voteup_post'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

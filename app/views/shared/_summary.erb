@@ -1,10 +1,43 @@
-  		<div class="post">
-        <div class="url">
-    		  <%= link_to post.description, post.url %>
-        </div>
-        <h3>
-      		<%= link_to "Poster: " + post.user.name, user_path(post.user_id) %>
-          <%= link_to "Comments: #{post.comments.count}", post_path(post.id) %>
-        </h3>
-      </div>
+<script type="text/javascript">
+$(function() {
+	$(".vote-up-link").click(function (){
+		alert('Test');
+		$.ajax({
+			url: 'posts/voteup',
+			data: 'id: <%= post.id %>',
+			success: function(data) {
+				alert('Test');
+				$("#post-score").html(data);
+			}
+		});
+	});
+});
+</script>
+
+<table>
+	<tr>
+		<td class="post-score">
+			<p id="post-score"><%= post.votescore %></p>
+			<%= link_to "Vote Up", voteup_post_path(post.id),
+														remote: true %>
+		</td>
+		<td>
+			<table class="post">
+				<tr>
+					<td class="url">
+				  	<%= link_to post.description, post.url %>
+				  </td>
+				</tr>
+				<tr>
+					<td>
+						  <h3>
+								<%= link_to "Poster: " + post.user.name, user_path(post.user_id) %>
+						    <%= link_to "Comments: #{post.comments.count}", post_path(post.id) %>
+	  					</h3>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
 
