@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<div class="center hero-unit">
-	<%= image_tag("pickle_jar.jpeg", alt: "Yup, a pickle jar") %>
-	<h1>Pickle Juice</h1>
+<div class="center">
+	<p class="banner">
+		<%= image_tag("pickle_jar.jpeg", alt: "Yup, a pickle jar", size: "50x50") %>
+		Pickle Juice
+	</p>
 
-	<%= link_to 'New Post', new_post_path %>
+	<%= link_to 'New Post', new_post_path, class: "btn new-post-link" %>
 	
 	<% @posts.each do |post| %>
 	  <%= render 'shared/summary', post: post %>

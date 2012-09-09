@@ -1,21 +1,26 @@
-<p id="notice"><%= notice %></p>
+	<p id="notice"><%= notice %></p>
 
-<%= render 'shared/summary', post: @post %>
+	<h3>Post:</h3>
+	<%= render 'shared/summary', post: @post %>
 
-<% @post.comments.each do |comment| %>
-	<%= render 'comments/comment', comment: comment %>
-<% end %>
+	<div class="comments">
+		<h3>Comments:</h3>
+		<% @post.comments.each do |comment| %>
+			<%= render 'comments/comment', comment: comment %>
+		<% end %>
 
 
-<div>
-	<%= form_for Comment.new, :remote => true do |f| %>
-			<%= f.label :comment %><br />
-			<%= f.text_field :comment %>
-	    <%= f.label :user_id %><br />
-	    <%= f.select( :user_id, 
-	    		User.all.map { |e| [e.name, e.id] }) %>
-	    <%= f.hidden_field :post_id, value: @post.id %><br />
-	    <%= f.submit "Add comment" %>
-	<% end %>
+		<div class="add-comments">
+			<h3>New Comment:</h3>
+			<%= form_for Comment.new, :remote => true do |f| %>
+					<%= f.label :comment %>
+					<%= f.text_field :comment %>
+			    <%= f.label :user_id %>
+			    <%= f.select( :user_id, 
+			    		User.all.map { |e| [e.name, e.id] }) %>
+			    <%= f.hidden_field :post_id, value: @post.id %><br />
+			    <%= f.submit "Add comment" %>
+			<% end %>
 
-</div>	
+		</div>
+	</div>

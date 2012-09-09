@@ -9,6 +9,7 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 	font-size: 30;
+	margin-top: 15px;
 
 	h3 {
 		font-size: 10px;
@@ -26,13 +27,40 @@
 }
 
 div.hero-unit h1 {
-	padding-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 .main-container {
-	padding-top: 40px;
+	margin-top: 40px;
 }
 
 .post-score {
 	padding-right: 20px;
+	text-align: center;
+}
+
+.banner {
+	font-size: 76px;
+	margin-bottom: 40px;
+}
+
+.new-post-link {
+	margin-bottom: 20px;
+}
+
+.comments {
+	margin-top: 20px;
+}
+
+.comment {
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	.comment-details {
+		font-size: 9px;
+	}	
+}
+
+.add-comments {
+	margin-top: 40px;
 }
