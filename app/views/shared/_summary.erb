@@ -1,23 +1,10 @@
-<script type="text/javascript">
-$(function() {
-	$(".vote-up-link").click(function (){
-		alert('Test');
-		$.ajax({
-			url: 'posts/voteup',
-			data: 'id: <%= post.id %>',
-			success: function(data) {
-				$("#post-score").html(data);
-			}
-		});
-	});
-});
-</script>
-
 <table class="post-summary">
 	<tr>
 		<td class="post-score">
+			<%= link_to "^", voteup_post_path(post.id),
+														remote: true %>
 			<p id="post-score"><%= post.votescore %></p>
-			<%= link_to "Vote Up", voteup_post_path(post.id),
+			<%= link_to "v", votedown_post_path(post.id),
 														remote: true %>
 		</td>
 		<td>
