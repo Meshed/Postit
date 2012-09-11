@@ -3,6 +3,6 @@
 		<%= comment.comment %>
 	</div>
 	<div class="comment-details">
-		Posted <%= time_ago_in_words(comment.created_at)%> ago by <%= comment.user.name %>
+		Posted <%= time_ago_in_words(comment.created_at)%> ago by <%= link_to "#{comment.user.name}", user_path(comment.user.id) %>
 	</div>
 <div>

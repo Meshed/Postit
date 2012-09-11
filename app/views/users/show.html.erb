@@ -18,6 +18,7 @@
     <th></th>
   </tr>
 
+<h3>Posts:</h3>
 <% @user.posts.each do |post| %>
 	<%= render 'shared/summary', post: post %>
 <% end %>
