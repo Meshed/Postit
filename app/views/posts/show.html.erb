@@ -15,10 +15,8 @@
 			<%= form_for Comment.new, :remote => true do |f| %>
 					<%= f.label :comment %>
 					<%= f.text_field :comment %>
-			    <%= f.label :user_id %>
-			    <%= f.select( :user_id, 
-			    		User.all.map { |e| [e.name, e.id] }) %>
 			    <%= f.hidden_field :post_id, value: @post.id %><br />
+			    <%= f.hidden_field :user_id, value: @post.user_id %><br />
 			    <%= f.submit "Add comment" %>
 			<% end %>
 

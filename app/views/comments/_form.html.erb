@@ -15,12 +15,9 @@
     <%= f.label :comment %><br />
     <%= f.text_field :comment %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.select( :user_id, User.all.map { |e| [e.name, e.id] }) %>
-  </div>
   <div class="hidden_fields">
     <%= f.hidden_field :post_id %>
+    <%= f.hidden_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
