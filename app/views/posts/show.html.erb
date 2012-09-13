@@ -9,16 +9,16 @@
 			<%= render 'comments/comment', comment: comment %>
 		<% end %>
 
-
-		<div class="add-comments">
-			<h3>New Comment:</h3>
-			<%= form_for Comment.new, :remote => true do |f| %>
-					<%= f.label :comment %>
-					<%= f.text_field :comment %>
-			    <%= f.hidden_field :post_id, value: @post.id %><br />
-			    <%= f.hidden_field :user_id, value: @post.user_id %><br />
-			    <%= f.submit "Add comment" %>
-			<% end %>
-
-		</div>
+		<% if current_user %>
+			<div class="add-comments">
+				<h3>New Comment:</h3>
+				<%= form_for Comment.new, :remote => true do |f| %>
+						<%= f.label :comment %>
+						<%= f.text_field :comment %>
+				    <%= f.hidden_field :post_id, value: @post.id %><br />
+				    <%= f.hidden_field :user_id, value: current_user.id %><br />
+				    <%= f.submit "Add comment" %>
+				<% end %>
+			</div>
+		<% end %>
 	</div>
