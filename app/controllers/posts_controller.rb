@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :require_login, :only => [:new, :edit, :create, :update, :destroy, :voteup, :votedown]
+
   # GET /posts
   # GET /posts.json
   def index
@@ -20,6 +22,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
+    @post.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb

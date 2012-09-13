@@ -19,9 +19,8 @@
     <%= f.label :url %><br />
     <%= f.text_field :url %>
   </div>
-  <div class="field">
-    <%= f.label :user %><br />
-    <%= f.select( :user_id, User.all.map { |e| [e.name, e.id] }) %> <%= link_to "New User", new_user_path %>
+  <div class="hidden_fields">
+    <%= f.hidden_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
