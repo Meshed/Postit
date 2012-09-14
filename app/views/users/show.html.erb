@@ -10,16 +10,20 @@
   <%= @user.email %>
 </p>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <h3>Posts:</h3>
 <% @user.posts.each do |post| %>
 	<%= render 'shared/summary', post: post %>
 <% end %>
-</table>
+
+<h3>Comments:</h3>
+<% if @user.comments.count == 0 %>
+  No comments found
+<% else %>
+  <% @user.comments.each do |comment| %>
+    <%= render 'comments/comment', comment: comment %>
+  <% end %>
+<% end %>
+
+<h3>Votes:</h3>
+Up Votes: <%= @upvotecount %><br />
+Down Votes: <%= @downvotecount %>

@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_filter :require_login, :only => [:index,
+                                          :show,
+                                          :edit,
+                                          :update,
+                                          :destroy]
+
   # GET /users
   # GET /users.json
   def index
@@ -14,6 +20,12 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @upvotecount = @user.votes.find(
+      :all, 
+      :conditions => "vote = 'up'").count
+    @downvotecount = @user.votes.find(
+      :all,
+      :conditions => "vote = 'down'").count
 
     respond_to do |format|
       format.html # show.html.erb
