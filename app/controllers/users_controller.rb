@@ -26,6 +26,10 @@ class UsersController < ApplicationController
     @downvotecount = @user.votes.find(
       :all,
       :conditions => "vote = 'down'").count
+    if @user.twitter.nil?
+    else
+      @twitterposts = Twitter.user(@user.twitter).status.text
+    end
 
     respond_to do |format|
       format.html # show.html.erb

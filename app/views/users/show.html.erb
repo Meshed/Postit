@@ -10,6 +10,11 @@
   <%= @user.email %>
 </p>
 
+<p>
+	<b>Twitter Handle:</b>
+	<%= @user.twitter %>
+</p>
+
 <h3>Posts:</h3>
 <% @user.posts.each do |post| %>
 	<%= render 'shared/summary', post: post %>
@@ -27,3 +32,6 @@
 <h3>Votes:</h3>
 Up Votes: <%= @upvotecount %><br />
 Down Votes: <%= @downvotecount %>
+
+<h3>Last 20 Twitter Posts</h3>
+<%= @twitterposts %>

@@ -24,3 +24,4 @@ end
 
 gem 'jquery-rails'
 gem 'sorcery'
+gem 'twitter'
