@@ -1,11 +1,13 @@
 <table class="post-summary">
 	<tr>
 		<td class="post-score">
-			<%= link_to "^", voteup_post_path(post.id),
-														remote: true %>
+			<%= link_to "", voteup_post_path(post.id),
+				remote: true,
+				:class => 'icon-plus' %>
 			<p id="post-score"><%= post.votescore %></p>
-			<%= link_to "v", votedown_post_path(post.id),
-														remote: true %>
+			<%= link_to "", votedown_post_path(post.id),
+				remote: true,
+				:class => 'icon-minus' %>
 		</td>
 		<td>
 			<table class="post">
@@ -17,7 +19,8 @@
 				<tr>
 					<td>
 						  <h3>
-								<%= link_to "Poster: " + post.user.name, user_path(post.user_id) %>
+						  	<%= link_to "Category: #{post.category}", posts_path(:category => post.category) %>
+								<%= link_to "Poster: #{post.user.name}", user_path(post.user_id) %>
 						    <%= link_to "Comments: #{post.comments.count}", post_path(post.id) %>
 	  					</h3>
 					</td>

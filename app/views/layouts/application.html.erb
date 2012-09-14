@@ -17,7 +17,7 @@ javascript_include_tag "jquery-rails.js"
 						<ul class="nav pull-left">
 							<li><%= link_to "Home", posts_path %></li>
 							<% if current_user %>
-								<li><%= current_user.username %></li>
+								<li><%= link_to current_user.username, user_path(current_user.id) %></li>
 								<li><%= link_to "Log out", logout_path %></li>
 							<% else %>
 								<li><%= link_to "Sign up", signup_path %></li>
