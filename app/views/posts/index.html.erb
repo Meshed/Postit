@@ -3,7 +3,11 @@
 <div class="center">
 	<p class="banner">
 		<%= image_tag("pickle_jar.jpeg", alt: "Yup, a pickle jar", size: "50x50") %>
-		Pickle Juice
+		<% if @category.nil? %>
+			Pickle Juice
+		<% else %>
+			<%= @category.capitalize %>
+		<% end %>
 	</p>
 
 	<%= link_to 'New Post', new_post_path, class: "btn new-post-link" %>
