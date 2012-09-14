@@ -77,25 +77,45 @@ class PostsController < ApplicationController
 
   def voteup
     @post = Post.find(params[:id])
+    @vote = @post.votes.find(
+      :all,
+      :conditions => "user_id = #{current_user.id}")
 
-    @post.votescore = @post.votescore + 1
-    @post.save
+    if @vote.empty?
+      @post.votescore = @post.votescore + 1
+      @post.save
+      @vote = @post.votes.new(user_id: current_user.id)
+      @vote.vote = "up"
+      @vote.save
 
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.js
+      respond_to do |format|
+        format.html { redirect_to posts_url }
+        format.js
+      end
+    else
+      redirect_to posts_path, notice: 'You can only vote once'        
     end
   end
 
   def votedown
     @post = Post.find(params[:id])
+    @vote = @post.votes.find(
+      :all,
+      :conditions => "user_id = #{current_user.id}")
 
-    @post.votescore = @post.votescore - 1
-    @post.save
+    if @vote.empty?
+      @post.votescore = @post.votescore - 1
+      @post.save
+      @vote = @post.votes.new(user_id: current_user.id)
+      @vote.vote = "down"
+      @vote.save
 
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.js
+      respond_to do |format|
+        format.html { redirect_to posts_url }
+        format.js
+      end
+    else
+      redirect_to posts_path, notice: 'You can only vote once'        
     end
   end
 end
