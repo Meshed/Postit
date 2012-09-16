@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	authenticates_with_sorcery!
+  authenticates_with_sorcery!
 
   attr_accessible :description, :url, :user_id, :voteup, :votedown, :votescore, :category
   validates :description, :presence => true

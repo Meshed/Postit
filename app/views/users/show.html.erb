@@ -34,9 +34,11 @@ Up Votes: <%= @upvotecount %><br />
 Down Votes: <%= @downvotecount %>
 
 <h3>Last 20 Twitter Posts</h3>
-<% @twitterposts.each do |tweet| %>
-  <div class='tweet'>
-    Created: <%= time_ago_in_words(tweet.created_at) %> ago<br />
-    Tweet: <%= tweet.text %>
-  </div>
+<% if @twitterposts %>
+  <% @twitterposts.each do |tweet| %>
+    <div class='tweet'>
+      Created: <%= time_ago_in_words(tweet.created_at) %> ago<br />
+      Tweet: <%= tweet.text %>
+    </div>
+  <% end %>
 <% end %>
