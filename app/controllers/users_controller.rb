@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       :conditions => "vote = 'down'").count
     if @user.twitter.nil?
     else
-      @twitterposts = Twitter.user(@user.twitter).status.text
+      @twitterposts = Twitter.user_timeline(@user.twitter).first(20)
     end
 
     respond_to do |format|
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        UserMailer.signup_confirmation(@user)
+        UserMailer.signup_confirmation(@user).deliver
         format.html { redirect_to posts_path, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
