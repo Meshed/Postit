@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @downvotecount = @user.votes.find(
       :all,
       :conditions => "vote = 'down'").count
-    if @user.twitter.empty?
+    if @user.twitter.blank?
     else
       begin
         @twitterposts = Twitter.user_timeline(@user.twitter).first(20) if @user.twitter
