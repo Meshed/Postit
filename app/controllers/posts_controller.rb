@@ -26,9 +26,9 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
 
     if @post.save
-      format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
+      redirect_to posts_path, notice: 'Post was successfully created.'
     else
-      format.html { render action: "new", notice: 'Post failed to creat successfully.' }
+      render action: "new", notice: 'Post failed to creat successfully.'
     end
   end
 
