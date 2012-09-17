@@ -11,7 +11,10 @@ class UsersController < ApplicationController
       :conditions => "vote = 'down'").count
     if @user.twitter.empty?
     else
-      @twitterposts = Twitter.user_timeline(@user.twitter).first(20) if @user.twitter
+      begin
+        @twitterposts = Twitter.user_timeline(@user.twitter).first(20) if @user.twitter
+      rescue
+      end
     end
   end
 
