@@ -2,7 +2,9 @@
   <div class="comment-body">
     <%= comment.comment %>
   </div>
-  <div class="comment-details">
+  <% if comment.created_at != nil %>
+  <div class="comment-details">    
     Posted <%= time_ago_in_words(comment.created_at)%> ago by <%= link_to "#{comment.user.name}", user_path(comment.user.id) %>
   </div>
+  <% end %>
 <div>

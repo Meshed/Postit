@@ -1,9 +1,8 @@
 Postit::Application.routes.draw do
-
   root :to => 'posts#index'
-
-  resources :comments, only: :create
-  resources :posts, :only => [:index, :show, :new, :create]
+  resources :posts, :only => [:index, :show, :new, :create] do
+    resources :comments, only: :create
+  end
   resources :users, :only => [:show, :new, :create]
   resources :sessions, :only => [:create, :destroy]
 
